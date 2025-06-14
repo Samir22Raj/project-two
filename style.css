@@ -1,149 +1,209 @@
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: var(--univ-font);
-    color: white;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: var(--univ-font);
+  color: white;
 }
 
-:root{
-    --main-bk-clr :hsl(216, 12%, 8%);
-    --crd-bk-clr : hsl(214, 20%, 16%);
-    --star-bk-clr : hsla(215, 9%, 27%, 0.349);
-    --white-text : hsl(0, 100%, 100%);
-    --sub-text : hsl(217, 12%, 63%);
-    --org-btn : hsl(25, 97%, 53%);
-    --univ-font :  "Overpass", sans-serif;
-    --para-font-size : 15px;
+:root {
+  --main-bk-clr: hsl(216, 12%, 8%);
+  --crd-bk-clr: hsl(214, 20%, 16%);
+  --star-bk-clr: hsla(215, 9%, 27%, 0.349);
+  --white-text: hsl(0, 100%, 100%);
+  --sub-text: hsl(217, 12%, 63%);
+  --org-btn: hsl(25, 97%, 53%);
+  --univ-font: "Overpass", sans-serif;
+  --para-font-size: 15px;
 }
 
-.container{
-    height: 100vh;
-    height: 100dvh;
-    background-color: var(--main-bk-clr);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.container {
+  height: 100vh;
+  height: 100dvh;
+  background-color: var(--main-bk-clr);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.card{
-    height: 350px;
-    width: 350px;
+.card {
+  height: 350px;
+  width: 350px;
+  background-color: var(--crd-bk-clr);
+  border-radius: 25px;
+}
+
+.rating-card, .thankyou-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 28px;
+  justify-content: space-evenly;
+}
+
+.rating-card > .star {
+  height: 40px;
+  width: 40px;
+  background-color: var(--star-bk-clr);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.rating-card > .star > img {
+  height: 13px;
+}
+
+.rating-card > .rating {
+  display: flex;
+  justify-content: space-between;
+  margin: 5px 0;
+}
+
+.rating-card > .rating > .rateBtn {
+  background-color: var(--star-bk-clr);
+  height: 30px;
+  width: 30px;
+  padding: 20px;
+  border: 0;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--sub-text);
+  transition: 150ms;
+}
+
+.rating-card > .rating > .rateBtn:hover {
+  background-color: var(--org-btn);
+  cursor: pointer;
+  color: var(--crd-bk-clr);
+}
+
+.rating-card > .rating > .active {
+  transition: 50ms;
+  background-color: var(--white-text);
+  cursor: pointer;
+  color: var(--crd-bk-clr);
+}
+
+.rating-card > .rating > .active:hover {
+  background-color: var(--white-text);
+}
+
+.rating-card > .card-heading {
+  margin-bottom: -10px;
+}
+
+.rating-card > .card-desc {
+  font-size: 13px;
+  color: var(--sub-text);
+  line-height: 20px;
+}
+
+.rating-card > .submit {
+  background-color: var(--org-btn);
+  border: none;
+  display: block;
+  width: 290px;
+  max-width: 100%;
+  min-width: 250px;
+  margin: 0 auto;
+  border-radius: 30px;
+  padding: 10px 0;
+  color: var(--main-bk-clr);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+  transition: 150ms;
+}
+
+.rating-card > .submit:hover {
+  background-color: var(--white-text);
+  cursor: pointer;
+}
+
+.attribution {
+  color: var(--white-text);
+  background-color: var(--main-bk-clr);
+  font-size: 11px;
+  text-align: center;
+}
+
+.hide {
+  display: none;
+}
+
+.thankyou-card {
+  align-items: center;
+}
+
+.thankyou-card > .rating-selected {
+  background-color: var(--star-bk-clr);
+  color: var(--org-btn);
+  font-size: 12px;
+  text-align: center;
+  padding: 4px 16px;
+  border-radius: 16px;
+  margin-bottom: 20px;
+  .rated {
+    color: var(--org-btn);
+  }
+}
+
+.thankyou-card > .thankyou {
+  font-size: 24px;
+}
+
+.thankyou-card > .thankyou-msg {
+  text-align: center;
+  font-size: 13px;
+  color: var(--sub-text);
+}
+
+@media screen and (max-width: 375px) {
+  .card {
+    width: 90%;
+    height: 400px;
     background-color: var(--crd-bk-clr);
     border-radius: 25px;
     display: flex;
     flex-direction: column;
-    padding: 25px;
-    gap: 20px;
-}
-
-.card > .star{
-    height: 40px;
-    width: 40px;
-    background-color: var(--star-bk-clr);
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 10px;
-}
-
-.card > .star > img{
-    height: 13px;
-}
-
-.card > .rating{
-    display: flex;
-    justify-content: space-between;
-    margin: 5px 0;
-}
-
-.card > .rating > div{
-    background-color: var(--star-bk-clr);
-    height: 30px;
-    width: 30px;
+    justify-content: space-evenly;
     padding: 20px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: var(--sub-text);
-}
+  }
 
-.card > .card-heading{
-    margin-bottom: -10px;
-}
-
-.card > .card-desc{
-    font-size: 13px;
-    color: var(--sub-text);
-    line-height: 20px;
-}
-
-.card > button{
+  .rating-card > button {
     background-color: var(--org-btn);
     border: none;
     display: block;
-    width: 290px;
-    max-width: 100%;
-    min-width: 250px;
     margin: 0 auto;
     border-radius: 30px;
-    padding: 10px 0;
+    padding: 15px 0;
     color: var(--main-bk-clr);
     text-transform: uppercase;
     letter-spacing: 1px;
-    font-weight: 700; 
-}
+    font-weight: 700;
+  }
 
-.attribution{
-    color: var(--white-text);
-    background-color: var(--main-bk-clr);
-    font-size: 11px; 
-    text-align: center;
-}
+  .rating-card > .card-desc {
+    font-size: var(--para-font-size);
+    color: var(--sub-text);
+    line-height: 20px;
+  }
 
-@media screen and (max-width: 375px) {
-    .card{
-        width: 90%;
-        height: 400px;
-        background-color: var(--crd-bk-clr);
-        border-radius: 25px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
-        padding: 20px;
-    }
-
-    .card > button{
-        background-color: var(--org-btn);
-        border: none;
-        display: block;
-        margin: 0 auto;
-        border-radius: 30px;
-        padding: 15px 0;
-        color: var(--main-bk-clr);
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        font-weight: 700; 
-    }
-
-    .card > .card-desc{
-        font-size: var(--para-font-size);
-        color: var(--sub-text);
-        line-height: 20px;
-    }
-
-    .card > .rating > div{
-        background-color: var(--star-bk-clr);
-        height: 30px;
-        width: 30px;
-        padding: 22px;
-        border-radius: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: var(--sub-text);
-    }
+  .rating-card > .rating > div {
+    background-color: var(--star-bk-clr);
+    height: 30px;
+    width: 30px;
+    padding: 22px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--sub-text);
+  }
 }
